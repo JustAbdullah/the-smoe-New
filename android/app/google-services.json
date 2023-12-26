@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "717585913701",
+    "project_id": "smoe-48557",
+    "storage_bucket": "smoe-48557.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717585913701:android:27a2d5094ccfbd3d70b38c",
+        "android_client_info": {
+          "package_name": "com.example.smoe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANtaXVzT4P2_cLrOLxYRA_9IuSdrNATHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

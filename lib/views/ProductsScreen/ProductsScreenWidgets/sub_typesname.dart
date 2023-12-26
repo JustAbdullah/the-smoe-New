@@ -8,13 +8,12 @@ import 'package:smoe/customWidgets/custom_container_api.dart';
 import '../../../controllers/home_controller.dart';
 import '../../../core/constant/app_text_styles.dart';
 import '../../../core/constant/appcolors.dart';
-import '../../../customWidgets/custom_cachednetworkimage.dart';
 import '../../../customWidgets/custom_container.dart';
 import '../../../customWidgets/custom_padding.dart';
 import '../../../customWidgets/custom_text.dart';
 
-class MainTypes extends StatelessWidget {
-  const MainTypes({super.key});
+class subTypesname extends StatelessWidget {
+  const subTypesname({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +21,12 @@ class MainTypes extends StatelessWidget {
     homeController.checktypes();
 
     return FutureBuilder(
-        future: homeController.maintypeItemsFuture,
+        future: homeController.subtypeItemsFuture,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
-            homeController.setmaintypeItems(snapshot.data!);
-            return buildmaintypes(homeController);
+            homeController.setsubtypeItems(snapshot.data!);
+
+            return buildsubtypes(homeController);
           } else {
             return ContainerCustom(
                 heigthContainer: 120,
@@ -75,17 +75,17 @@ class MainTypes extends StatelessWidget {
         });
   }
 
-  ContainerCustom buildmaintypes(HomeController homeController) {
+  ContainerCustom buildsubtypes(HomeController homeController) {
     return ContainerCustom(
       heigthContainer: 100,
       widthContainer: 1300,
       colorContainer: AppColors.whiteColorTypeOne,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: homeController.maintypeItems.length,
+          itemCount: homeController.subtypeItems.length,
           shrinkWrap: true,
           itemBuilder: (context, i) {
-            final maintypeitem = homeController.maintypeItems[i];
+            final maintypeitem = homeController.subtypeItems[i];
             return PaddingCustom(
               theRight: 0,
               theLeft: 0,
@@ -95,24 +95,22 @@ class MainTypes extends StatelessWidget {
                     onTap: () {},
                     child: ContainerCustomApi(
                       colorContainer: AppColors.whiteColor,
-                      boxShape: BoxShape.circle,
-                      heigthContainer: 70.h,
-                      child: CustomCachedNetworkImage(
-                        urlTheImage: maintypeitem.img.toString(),
-                        width: 60,
-                        height: 100,
-                        boxFit: BoxFit.contain,
+                      theBorderRadius: 50,
+                      //  boxShape: BoxShape.circle,
+                      heigthContainer: 30.h,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 8.w),
+                        child: TextCustom(
+                          theText: maintypeitem.name.toString(),
+                          fontColor: AppColors.blackColorTypeTeo,
+                          fontFamily: AppTextStyles.Marhey,
+                          fontSizeWidth: 15,
+                        ),
                       ),
                     ),
                   ),
                   SizedBox(
                     height: 8.h,
-                  ),
-                  TextCustom(
-                    theText: maintypeitem.name.toString(),
-                    fontColor: AppColors.blackColorTypeTeo,
-                    fontFamily: AppTextStyles.Marhey,
-                    fontSizeWidth: 15,
                   ),
                 ],
               ),

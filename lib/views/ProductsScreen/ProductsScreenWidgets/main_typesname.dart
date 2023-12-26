@@ -8,13 +8,12 @@ import 'package:smoe/customWidgets/custom_container_api.dart';
 import '../../../controllers/home_controller.dart';
 import '../../../core/constant/app_text_styles.dart';
 import '../../../core/constant/appcolors.dart';
-import '../../../customWidgets/custom_cachednetworkimage.dart';
 import '../../../customWidgets/custom_container.dart';
 import '../../../customWidgets/custom_padding.dart';
 import '../../../customWidgets/custom_text.dart';
 
-class MainTypes extends StatelessWidget {
-  const MainTypes({super.key});
+class MainTypesname extends StatelessWidget {
+  const MainTypesname({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -95,24 +94,22 @@ class MainTypes extends StatelessWidget {
                     onTap: () {},
                     child: ContainerCustomApi(
                       colorContainer: AppColors.whiteColor,
-                      boxShape: BoxShape.circle,
-                      heigthContainer: 70.h,
-                      child: CustomCachedNetworkImage(
-                        urlTheImage: maintypeitem.img.toString(),
-                        width: 60,
-                        height: 100,
-                        boxFit: BoxFit.contain,
+                      theBorderRadius: 50,
+                      //  boxShape: BoxShape.circle,
+                      heigthContainer: 30.h,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 8.w),
+                        child: TextCustom(
+                          theText: maintypeitem.name.toString(),
+                          fontColor: AppColors.blackColorTypeTeo,
+                          fontFamily: AppTextStyles.Marhey,
+                          fontSizeWidth: 15,
+                        ),
                       ),
                     ),
                   ),
                   SizedBox(
                     height: 8.h,
-                  ),
-                  TextCustom(
-                    theText: maintypeitem.name.toString(),
-                    fontColor: AppColors.blackColorTypeTeo,
-                    fontFamily: AppTextStyles.Marhey,
-                    fontSizeWidth: 15,
                   ),
                 ],
               ),

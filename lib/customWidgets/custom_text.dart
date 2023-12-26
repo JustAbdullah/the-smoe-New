@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 // ignore: must_be_immutable
 class TextCustom extends StatelessWidget {
@@ -26,7 +25,7 @@ class TextCustom extends StatelessWidget {
       maxLines: maxLines,
       theText,
       style: TextStyle(
-          height: 0.002.h,
+          // height: 0.002.h,
           fontFamily: fontFamily,
           color: fontColor,
           fontSize: fontSizeWidth.sp,

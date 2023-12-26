@@ -46,44 +46,40 @@ class ProductsList extends StatelessWidget {
                             scrollDirection: Axis.horizontal,
                             child: Row(
                               children: [
-                                Row(
+                                Column(
                                   children: [
-                                    Column(
+                                    InkWell(
+                                      onTap: () {},
+                                      child: CustomCachedNetworkImage(
+                                        urlTheImage: snapshot.data['data'][i]
+                                                ['product_image']
+                                            .toString(),
+                                        width: 100,
+                                        height: 100,
+                                        boxFit: BoxFit.contain,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10.h,
+                                    ),
+                                    Row(
                                       children: [
-                                        InkWell(
-                                          onTap: () {},
-                                          child: CustomCachedNetworkImage(
-                                            urlTheImage: snapshot.data['data']
-                                                    [i]['product_image']
-                                                .toString(),
-                                            width: 100,
-                                            height: 100,
-                                            boxFit: BoxFit.contain,
-                                          ),
+                                        TextCustom(
+                                          theText: "SAR",
+                                          fontColor: AppColors.blackColor,
+                                          fontFamily: AppTextStyles.Almarai,
+                                          fontSizeWidth: 16,
                                         ),
                                         SizedBox(
-                                          height: 10.h,
+                                          width: 4.w,
                                         ),
-                                        Row(
-                                          children: [
-                                            TextCustom(
-                                              theText: "SAR",
-                                              fontColor: AppColors.blackColor,
-                                              fontFamily: AppTextStyles.Almarai,
-                                              fontSizeWidth: 16,
-                                            ),
-                                            SizedBox(
-                                              width: 4.w,
-                                            ),
-                                            TextCustom(
-                                              theText: snapshot.data['data'][i]
-                                                  ['product_price'],
-                                              fontColor: AppColors.redColor,
-                                              fontFamily: AppTextStyles.Almarai,
-                                              fontSizeWidth: 16,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ],
+                                        TextCustom(
+                                          theText: snapshot.data['data'][i]
+                                              ['product_price'],
+                                          fontColor: AppColors.redColor,
+                                          fontFamily: AppTextStyles.Almarai,
+                                          fontSizeWidth: 16,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ],
                                     ),

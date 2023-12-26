@@ -1,14 +1,13 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:smoe/views/HomeScreen/home_screen.dart';
 
 import 'core/constant/color_primary.dart';
 import 'core/localization/changelanguage.dart';
 import 'core/localization/translation.dart';
 import 'core/services/appservices.dart';
-import 'views/ProductsScreen/products_screen.dart';
 import 'views/loadingScreen/loading_screen.dart';
 
 void main() async {
@@ -16,6 +15,7 @@ void main() async {
 
   // Stripe.publishableKey = ApiKeysStripe.Publishablekey;
 
+  FirebaseMessaging.instance.subscribeToTopic("all");
   await initialServices();
   runApp(MaterialApp(debugShowCheckedModeBanner: false, home: const MyApp()));
   SystemChrome.setPreferredOrientations(

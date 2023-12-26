@@ -11,10 +11,8 @@ import 'package:smoe/views/HomeScreen/honeWidgets/favorites.dart';
 import 'package:smoe/views/HomeScreen/honeWidgets/main_types.dart';
 import 'package:smoe/views/HomeScreen/honeWidgets/offers_list.dart';
 import 'package:smoe/views/HomeScreen/honeWidgets/top_header.dart';
-import 'package:smoe/views/ProductsScreen/ProductsScreenWidgets/products_list.dart';
-
-import '../../customWidgets/custom_container_api.dart';
 import '../ProductsScreen/products_screen.dart';
+import '../SettingScreen/setting.dart';
 import 'honeWidgets/highest_rating.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -221,7 +219,9 @@ class HomeScreen extends StatelessWidget {
                             child: Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 10.w),
                                 child: InkWell(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Get.to(SettingPage());
+                                  },
                                   child: Row(
                                     children: [
                                       Image.asset(

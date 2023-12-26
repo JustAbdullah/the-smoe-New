@@ -12,4 +12,7 @@ class ImagesPath {
   static const String settings = "$RootPath/icons8-settings-100 (2).png";
   static const String home = "$RootPath/icons8-home-96.png";
   static const String list = "$RootPath/icons8-list-52.png";
+  static const String success = "$RootPath/success.json";
+  static const String error = "$RootPath/error.json";
+  static const String auth = "$RootPath/verification.json";
 }

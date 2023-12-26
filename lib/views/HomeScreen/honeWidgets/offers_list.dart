@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:smoe/controllers/home_controller.dart';
 import 'package:smoe/core/constant/appcolors.dart';
+import 'package:smoe/core/data/offer.dart';
 import 'package:smoe/customWidgets/custom_padding.dart';
 
 import '../../../customWidgets/custom_cachednetworkimage.dart';
@@ -14,48 +15,16 @@ class TheOffersList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeController homeController = Get.put(HomeController());
-
+    // Future<List<offer>> offersfuture =
+    //     homeController.getDataOffersFromDatabase();
     homeController.onInit();
 
-    return FutureBuilder(
+    return FutureBuilder<List<offer>>(
         future: homeController.getDataOffersFromDatabase(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
-            return ContainerCustom(
-                heigthContainer: 150,
-                widthContainer: 900,
-                colorContainer: AppColors.whiteColorTypeOne,
-                theBorderRadius: 20,
-                child: GetBuilder<HomeController>(
-                  builder: (tx) => ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: snapshot.data['data'].length,
-                      shrinkWrap: true,
-                      itemBuilder: (context, i) {
-                        return PaddingCustom(
-                            theRight: 10,
-                            theLeft: 10,
-                            child: ContainerCustom(
-                                heigthContainer: 250,
-                                widthContainer: 200,
-                                colorContainer: AppColors.whiteColorTypeOne,
-                                theBorderRadius: 20,
-                                child: Stack(
-                                  children: [
-                                    Align(
-                                        alignment: Alignment.center,
-                                        child: CustomCachedNetworkImage(
-                                          urlTheImage: snapshot.data['data'][i]
-                                                  ['offer_image_ar']
-                                              .toString(),
-                                          width: 200,
-                                          height: 250,
-                                          boxFit: BoxFit.cover,
-                                        )),
-                                  ],
-                                )));
-                      }),
-                ));
+            final offers = snapshot.data!;
+            return buildeoffers(offers);
           } else {
             return ContainerCustom(
                 heigthContainer: 150,
@@ -83,5 +52,42 @@ class TheOffersList extends StatelessWidget {
                     }));
           }
         });
+  }
+
+  ContainerCustom buildeoffers(List<offer> offers) {
+    return ContainerCustom(
+        heigthContainer: 150,
+        widthContainer: 900,
+        colorContainer: AppColors.whiteColorTypeOne,
+        theBorderRadius: 20,
+        child: GetBuilder<HomeController>(
+          builder: (tx) => ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: offers.length,
+              shrinkWrap: true,
+              itemBuilder: (context, i) {
+                final oneoffer = offers[i];
+                return PaddingCustom(
+                    theRight: 10,
+                    theLeft: 10,
+                    child: ContainerCustom(
+                        heigthContainer: 250,
+                        widthContainer: 200,
+                        colorContainer: AppColors.whiteColorTypeOne,
+                        theBorderRadius: 20,
+                        child: Stack(
+                          children: [
+                            Align(
+                                alignment: Alignment.center,
+                                child: CustomCachedNetworkImage(
+                                  urlTheImage: oneoffer.img.toString(),
+                                  width: 200,
+                                  height: 250,
+                                  boxFit: BoxFit.cover,
+                                )),
+                          ],
+                        )));
+              }),
+        ));
   }
 }

@@ -5,16 +5,18 @@ import 'package:smoe/controllers/home_controller.dart';
 import 'package:smoe/core/constant/images_path.dart';
 import 'package:smoe/customWidgets/custom_container.dart';
 import 'package:smoe/customWidgets/custom_container_api.dart';
+import 'package:smoe/views/Cart/cart.dart';
 
 import '../../core/constant/app_text_styles.dart';
 import '../../core/constant/appcolors.dart';
 import '../../customWidgets/custom_padding.dart';
 import '../../customWidgets/custom_text.dart';
 import '../../customWidgets/custome_textfiled.dart';
-import '../HomeScreen/home_screen.dart';
-import '../HomeScreen/honeWidgets/highest_rating.dart';
+
 import '../HomeScreen/honeWidgets/main_types.dart';
+import 'ProductsScreenWidgets/main_typesname.dart';
 import 'ProductsScreenWidgets/products_list.dart';
+import 'ProductsScreenWidgets/sub_typesname.dart';
 
 class ProuctsScreen extends StatelessWidget {
   const ProuctsScreen({super.key});
@@ -33,7 +35,7 @@ class ProuctsScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 15.h),
                 child: InkWell(
                   onTap: () {
-                    Get.to(HomeScreen());
+                    Get.to(Cartpage());
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -181,7 +183,7 @@ class ProuctsScreen extends StatelessWidget {
                             theTop: 50.h,
                             child: Align(
                               alignment: Alignment.topCenter,
-                              child: MainTypes(),
+                              child: MainTypesname(),
                             ),
                           ),
                         ),
@@ -191,7 +193,7 @@ class ProuctsScreen extends StatelessWidget {
                             theTop: controller.PaddingTheSubType.value,
                             child: Align(
                               alignment: Alignment.topCenter,
-                              child: MainTypes(),
+                              child: subTypesname(),
                             ),
                           ),
                         ),

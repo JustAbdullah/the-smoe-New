@@ -1,44 +1,37 @@
 class Products {
-  String? idPro;
-  String? namePro;
-  String? nameProEn;
-  String? bodyPro;
-  String? bodyProEn;
-  String? imagePro;
-  String? imageProtwo;
-  String? imageProthree;
-  String? imageProfour;
-  String? pricePro;
-  String? oldPrice;
-  String? KpricePro;
-  String? KoldPrice;
-  String? quantityTheProduct;
-  String? idBrand;
-  String? idType;
-  String? idSubType;
-  String? nameBrandAr;
-  String? nameBrandEn;
-  String? imageBrand;
+  String? id;
+  String? name;
+  String? image;
+  String? offer;
+  String? description;
+  String? price;
+  String? mainType;
+  String? SubType;
+  String? evaluation;
 
-  Products(
-      {this.idPro,
-      this.namePro,
-      this.nameProEn,
-      this.bodyPro,
-      this.bodyProEn,
-      this.pricePro,
-      this.oldPrice,
-      this.imagePro,
-      this.imageProtwo,
-      this.imageProthree,
-      this.imageProfour,
-      this.quantityTheProduct,
-      this.idBrand,
-      this.idType,
-      this.idSubType,
-      this.nameBrandAr,
-      this.nameBrandEn,
-      this.imageBrand,
-      this.KoldPrice,
-      this.KpricePro});
+  Products({
+    this.id,
+    this.name,
+    this.image,
+    this.offer,
+    this.description,
+    this.price,
+    this.mainType,
+    this.SubType,
+    this.evaluation,
+  });
+
+  factory Products.fromJson(Map<String, dynamic> json) {
+    return Products(
+      id: json['product_id'] ?? '',
+      name: json['product_name'] ?? 'Default Title',
+      image: json['product_image'] ?? 'Default en',
+      offer: json['product_offer'] ?? 'Default image',
+      description: json['product_description'] ?? '',
+      price: json['product_price'] ?? 'Default Title',
+      mainType: json['type_name'] ?? 'Default en',
+      SubType: json['subtype_name'] ?? 'Default image',
+      evaluation: json['evaluation'] ?? 'Default image',
+    );
+  }
 }
